@@ -15,7 +15,7 @@ function fitCounterFont() {
   }
   if (!counterEl) return;
 
-  const HEIGHT_FACTOR = 1.175;
+  const HEIGHT_FACTOR = 1.2;
 
   // Höhe der Box messen
   const rect = counterEl.getBoundingClientRect();
