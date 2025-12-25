@@ -1,0 +1,224 @@
+
+@font-face {
+  font-family: "Kario";
+  src: url("../fonts/Kario39C3VarWEB-Roman.woff2") format("woff2-variations");
+}
+
+:root{
+  --primary-color: black;
+  --secondary-color: white;
+}
+
+/*POWERCYCLES COLORS PURPLE #9673ff GREEN #00ff00 */
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-size: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Kario";
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+}
+
+p {
+  font-size: 2rem;
+  letter-spacing: -2px;
+  word-spacing: -4px;
+  line-height: .8em;
+  font-variation-settings: "opsz"160,"wght" 60, "wdth" 120;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.value {
+  text-align: right;
+}
+
+.bar {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  color: var(--primary-color);
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.bar-track {
+  display: inline-flex;
+  animation: move 30s linear infinite;
+}
+
+.bar-content {
+  display: inline-block;
+  padding-left: 2rem;
+  font-size: 4rem;
+  letter-spacing: -2px;
+  word-spacing: 0;
+  line-height: .8em;
+  font-variation-settings: "opsz"160,"wght" 60, "wdth" 120;
+}
+
+/* Laufband-Animation */
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.hint {
+  border-top: solid 3px var(--primary-color);
+  padding: 5px;
+  width: 100%;
+  text-align: left;
+  flex: 0 0 auto; 
+}
+
+.counter-wrapper{
+  display: flex;
+  flex-grow: 1;
+  height: 50%;
+  margin-bottom: -6vh;
+  border-top: solid 3px var(--primary-color);
+
+}
+
+.counter {
+  font-family: "Kario";
+
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;
+
+  font-variation-settings: "wght" 60, "wdth" 160;
+  letter-spacing: 0;
+  text-align: center;
+  overflow: hidden;
+
+  animation-name: monkey-around, none;
+  animation-duration: 10s, 1s;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-iteration-count: infinite, 1;
+  animation-fill-mode: both, none;
+  animation-direction: alternate;
+}
+
+
+
+@keyframes monkey-around {
+  0% {
+    font-variation-settings: "wght" 1, "wdth" 160;
+  }
+  25% {
+    font-variation-settings: "wght" 80, "wdth" 50;
+  }
+  50% {
+    font-variation-settings: "wght" 120, "wdth" 160;
+  }
+  75% {
+    font-variation-settings: "wght" 80, "wdth" 30;
+  }
+  100% {
+    font-variation-settings: "wght" 1, "wdth" 160;
+  }
+}
+
+@keyframes count-up {
+  0% {
+    transform: scaleX(1.0);
+  }
+  30% {
+    transform: scaleX(1.0);
+  }
+  49% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(0);
+  }
+  70% {
+    transform: scaleX(1.0);
+  }
+  100% {
+    transform: scaleX(1.0);
+  }
+}
+
+@keyframes count-down {
+  0% {
+    transform: scaleX(1.0);
+  }
+  30% {
+    transform: scaleX(1.0);
+  }
+  49% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(0);
+  }
+  70% {
+    transform: scaleX(1.0);
+  }
+  100% {
+    transform: scaleX(1.0);
+  }
+}
+
+.counter.animate-up {
+  animation-name: monkey-around, count-up;
+}
+
+.counter.animate-down {
+  animation-name: monkey-around, count-down;
+}
+
+
+
+/*PHONE*/
+
+@media only screen and (max-width: 900px){
+
+  *{
+    font-size: 16px;
+  }
+
+  p{
+    letter-spacing: .25px;
+  }
+
+
+}
