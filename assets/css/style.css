@@ -9,6 +9,11 @@
   --secondary-color: white;
 }
 
+::-moz-selection, ::selection{
+  color: var(--secondary-color);
+  background: var(--primary-color);
+}
+
 /*POWERCYCLES COLORS PURPLE #9673ff GREEN #00ff00 */
 
 
@@ -101,8 +106,7 @@ p {
 
 .hint {
   border-top: solid 3px var(--primary-color);
-  padding: 3px;
-  padding-top: 7px;
+  padding: 2.3px;
 
   width: 100%;
   text-align: left;
