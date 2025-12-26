@@ -71,19 +71,20 @@ p {
   overflow: hidden;
   white-space: nowrap;
   flex: 0 0 auto;
+  border-top: 3px solid black;
 }
 
 .bar-track {
   display: inline-flex;
-  animation: move 30s linear infinite;
+  animation: move 45s linear infinite;
 }
 
 .bar-content {
   display: inline-block;
   padding-left: 2rem;
   font-size: 4rem;
-  letter-spacing: -2px;
-  word-spacing: 0;
+  letter-spacing: -.1rem;
+  word-spacing: -2px;
   line-height: .8em;
   font-variation-settings: "opsz"160,"wght" 60, "wdth" 120;
 }
@@ -100,7 +101,9 @@ p {
 
 .hint {
   border-top: solid 3px var(--primary-color);
-  padding: 5px;
+  padding: 3px;
+  padding-top: 7px;
+
   width: 100%;
   text-align: left;
   flex: 0 0 auto; 
@@ -145,20 +148,38 @@ p {
   animation-direction: alternate;
 }
 
+.small-monkey-around{
+  animation-name: small-monkey-around, none;
+  animation-duration: 20s;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-iteration-count: infinite, 1;
+  /*animation-fill-mode: both, none;*/
+  animation-direction: alternate;
+}
 
+
+@keyframes small-monkey-around {
+  0% {
+    font-variation-settings: "wdth" 120;
+  }
+
+  100% {
+    font-variation-settings: "wdth" 120;
+  }
+}
 
 @keyframes monkey-around {
   0% {
-    font-variation-settings: "wght" 1, "wdth" 160;
+    font-variation-settings: "wght" 10, "wdth" 160;
   }
   25% {
-    font-variation-settings: "wght" 80, "wdth" 50;
+    font-variation-settings: "wght" 100, "wdth" 30;
   }
   50% {
     font-variation-settings: "wght" 120, "wdth" 160;
   }
   75% {
-    font-variation-settings: "wght" 80, "wdth" 30;
+    font-variation-settings: "wght" 20, "wdth" 30;
   }
   100% {
     font-variation-settings: "wght" 1, "wdth" 160;
@@ -225,9 +246,12 @@ p {
     font-size: 16px;
   }
 
-  p{
+  p,.hint{
     letter-spacing: .25px;
   }
+  /*.bar-content{
+    letter-spacing: -1px;
+  }*/
 
 
 }
