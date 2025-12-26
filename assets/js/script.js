@@ -96,3 +96,38 @@ window.addEventListener("load", () => {
 window.addEventListener("resize", () => {
   fitCounterFont();
 });
+
+const rootElement = document.documentElement;
+const toggleButton = document.getElementById("powercycle");
+
+// interner Zustand für wdth
+let isWide = false;
+
+function toggleColors() {
+  // aktuelle Werte der CSS-Variablen holen
+  const styles = getComputedStyle(rootElement);
+  const primary = styles.getPropertyValue("--primary-color").trim();
+  const secondary = styles.getPropertyValue("--secondary-color").trim();
+
+  // Farben vertauschen
+  rootElement.style.setProperty("--primary-color", secondary);
+  rootElement.style.setProperty("--secondary-color", primary);
+
+  // wdth des Buttons toggeln (100 ↔ 10)
+  if (toggleButton) {
+    if (!isWide) {
+      // breit
+      toggleButton.style.fontVariationSettings = ' "opsz"160, "wght" 100, "wdth" 120';
+      isWide = true;
+    } else {
+      // schmal
+      toggleButton.style.fontVariationSettings = '"opsz"160, "wght" 10, "wdth" 120';
+      isWide = false;
+    }
+  }
+}
+
+if (toggleButton) {
+  toggleButton.addEventListener("click", toggleColors);
+}
+
